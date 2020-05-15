@@ -1,4 +1,8 @@
+
+
+# GROUP MEMBERS: DAN LOVE, JOHN LOBERGER, ALEX GRIMES, CLAUDIU SARB, MICHAEL SOTIR
 ## QUESTION 1
+require 'pry'
 
 pokemon = [
   {
@@ -59,6 +63,74 @@ pokemon = [
   ]
 }
 ]
+
+def bulb_ability(pokemon)
+  y = pokemon.select do |x|
+  x[:name] == "bulbasaur"
+  end
+  z = y.map do |x|
+  x[:abilities][0][:ability][:url]
+  end
+end
+
+p bulb_ability(pokemon)
+
+p "--------------"
+
+def first_over_forty(pokemon)
+  pokemon.first do |hash|
+     hash[:base_experience] > 40
+  end
+end
+
+p first_over_forty(pokemon)
+# p pokemon.first do |hash|
+#    hash[:base_experience] > 40
+# end
+p "--------------"
+
+def all_over_forty(pokemon)
+  pokemon.select do |hash|
+    hash[:base_experience] > 40
+  end
+end
+
+p all_over_forty(pokemon)
+# p pokemon.select do |hash|
+#   hash[:base_experience] > 40
+# end
+p "--------------"
+
+def pokemon_names(pokemon)
+  names = pokemon.map do |hash|
+    hash[:name]
+  end
+  names
+end
+
+p pokemon_names(pokemon)
+
+# arr = pokemon.map do |hash|
+#   hash[:name]
+# end
+p "--------------"
+
+def pokemon_over_sixty?(pokemon)
+  pokemon.any? do |hash|
+    hash[:weight] > 60
+  end
+end
+
+p pokemon_over_sixty?(pokemon)
+# p pokemon.any? do |hash|
+#   hash[:weight] > 60
+# end
+p "--------------"
+
+
+
+
+
 
 
 # How would you get the url for Bulbasaur's ability?
